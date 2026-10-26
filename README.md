@@ -7,6 +7,10 @@ Interpretador de expressões sobre inteiros binários sem sinal, com analisadore
 - João Marcelo
 - Thiago Wyse
 
+## Vídeo de apresentação
+
+[Assista ao vídeo com a explicação do trabalho](https://youtu.be/LGRYymh17Ho).
+
 ## Conteúdo
 
 - `trabalho_m2.gals`: projeto atualizado para abrir no GALs/WebGALs.
