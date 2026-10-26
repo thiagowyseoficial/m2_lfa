@@ -1,0 +1,66 @@
+#Options
+GenerateScanner = true
+GenerateParser = true
+Language = Java
+ScannerName = Lexico
+ParserName = Sintatico
+SemanticName = Semantico
+Package = gals
+ScannerCaseSensitive = true
+ScannerTable = Compact
+Input = Stream
+Parser = SLR
+#RegularDefinitions
+letra : [a-zA-Z]
+digito : [0-9]
+#Tokens
+ : [\ \n\t\r\s]+
+ id : {letra} ({letra} | {digito} | _)*
+ show = id : "Show"
+ log = id : "log"
+ binario : [01]+
+ atrib : "="
+ pv : ";"
+ soma : "+"
+ subtracao : "-"
+ mult : "*"
+ div : "/"
+ pot : "^"
+ abre : "("
+ fecha : ")"
+#NonTerminals
+<lista_comandos>
+<comando>
+<atribuicao>
+<destino>
+<exibicao>
+<expressao>
+<termo>
+<potencia>
+<fator>
+#Grammar
+<lista_comandos> ::= <lista_comandos> <comando> | <comando> ;
+
+<comando> ::= <atribuicao> | <exibicao> ;
+
+<atribuicao> ::= <destino> atrib <expressao> pv #2 ;
+
+<destino> ::= id #1 ;
+
+<exibicao> ::= show abre <expressao> fecha pv #3 ;
+
+<expressao> ::= <expressao> soma <termo> #4
+              | <expressao> subtracao <termo> #5
+              | <termo> ;
+
+<termo> ::= <termo> mult <potencia> #6
+          | <termo> div <potencia> #7
+          | <potencia> ;
+
+<potencia> ::= <fator> pot <potencia> #8
+             | <fator> ;
+
+<fator> ::= binario #9
+          | id #10
+          | abre <expressao> fecha
+          | log abre <expressao> fecha #11 ;
