@@ -67,7 +67,3 @@ O enunciado não especifica a base do log, a política de truncamento nem explic
 ## Alterações no GALs
 
 Abra `trabalho_m2.gals` para consultar tokens, gramática e ações `#1` a `#11`. Se gerar novamente os analisadores, preserve o `Semantico.java` desta entrega: o arquivo semântico exportado pelo gerador é apenas um modelo e não contém a implementação dos cálculos.
-
-## Conferência antes da entrega
-
-Compile, execute `gals.Main` e rode os testes. A compilação e os testes foram conferidos por terminal; a execução pela interface do IntelliJ deve ser feita no ambiente de apresentação.
